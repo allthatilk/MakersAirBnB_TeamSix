@@ -4,7 +4,12 @@ class Air_bnb < Sinatra::Base
 
   get '/' do
     "Hello World"
+    erb :'listings/new'
   end
 
-run! if app_file == $0
+  post '/listings/new' do
+    redirect '/'
+  end
+
+  run! if app_file == $0
 end
