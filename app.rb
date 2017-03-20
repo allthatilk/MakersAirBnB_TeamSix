@@ -1,10 +1,11 @@
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
 
 class Air_bnb < Sinatra::Base
 
   get '/' do
-    "Hello World"
-    erb :'listings/new'
+    erb :index
   end
 
   post '/listings/new' do
