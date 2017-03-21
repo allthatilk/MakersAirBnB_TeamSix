@@ -13,4 +13,14 @@ class Space
     Booking.all(space_id: id, date: Date.today).empty?
   end
 
+  def get_unavailable_dates
+    all_bookings = Booking.all(space_id: id)
+    unavailable_dates = []
+    all_bookings.each do |booking|
+      unavailable_date = [booking.date.strftime('%d').to_i, booking.date.strftime('%m').to_i, booking.date.strftime('%Y').to_i]
+      unavailable_dates << unavailable_date
+    end
+    unavailable_dates
+  end
+
 end

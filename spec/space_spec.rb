@@ -15,4 +15,10 @@ describe Space do
     booking = Booking.create(date: Date.today, space_id: 1)
     expect(my_space.available_tonight?).to be false
   end
+
+  it "shows unavailable dates for a space" do
+    my_space = Space.create(name: "Two-bedroom", description: "Spacious flat in Kingston", price: 70)
+    booking = Booking.create(date: Date.today, space_id: 1)
+    expect(my_space.get_unavailable_dates).to eq [[21, 03, 2017]]
+  end
 end

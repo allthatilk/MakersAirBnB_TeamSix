@@ -21,4 +21,5 @@ feature 'filtering' do
     expect(page).to_not have_content("Jim's Room")
     p "look away"
   end
+
 end
