@@ -17,7 +17,7 @@ class Air_bnb < Sinatra::Base
 
   get '/space' do
     @space = Space.get(params[:id])
-    'Available Tonight!'
+    erb :space
   end
 
   run! if app_file == $0
