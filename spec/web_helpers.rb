@@ -1,3 +1,11 @@
+def sign_up
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in :email, with: 'test@example.com'
+  fill_in :password, with: 'password'
+  click_button 'Sign up'
+end
+
 def create_joy_room_listing
   fill_in("name", with: "The Joy Room")
   fill_in("description", with: "The happiest room of all.")
