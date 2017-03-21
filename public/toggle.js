@@ -1,18 +1,11 @@
-$(document).ready(function(){
+function togglePassword(el) {
+	var checked = el.checked;
 
-	function togglePasswordFieldClicked() {
-
-	var passwordField = document.getElementById('passwordField');
-	var value = passwordField.value;
-
-	if(passwordField.type == 'password') {
-		passwordField.type = 'text';
+	if(checked) {
+		document.getElementById('password').type = 'text';
+		document.getElementById('toggleText').textContent = 'Hide';
+	}else{
+		document.getElementById('password').type = 'password';
+		document.getElementById('toggleText').textContent = 'Show';
 	}
-	else {
-		passwordField.type = 'password';
-	}
-
-	passwordField.value = value;
-
-}
 }

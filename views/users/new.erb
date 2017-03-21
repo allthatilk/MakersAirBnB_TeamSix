@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 
 <head>
-  <script src="public/toggle.js"></script>
+  <script src="/toggle.js"></script>
 </head>
 
 <body>
   <h1>Please sign up here</h1>
 
 <form action='/users' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='text'>
-  </label>
-  <label for='password'>
-    Password: <input id='passwordField' type='password' name='passwordField' value='' autocomplete='off'>
-    <input type='button' id='togglePasswordField' value='Toggle Password' >
-  </label>
+  <label for='email'>Email:</label>
+    <input name='email' type='text'>
+  <label for='password'>Password:</label>
+    <input type='password' id='password'>
+    <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>
+    <span id='toggleText'>Show</span>
   <input type='submit' value='Sign up'>
 </form>
 </body>
-
-<!-- style='display:none' -->
