@@ -15,5 +15,10 @@ class Air_bnb < Sinatra::Base
     redirect '/'
   end
 
+  get '/space' do
+    @space = Space.get(params[:id])
+    'Available Tonight!'
+  end
+
   run! if app_file == $0
 end
