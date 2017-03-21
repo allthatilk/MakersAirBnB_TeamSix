@@ -15,6 +15,4 @@ describe Space do
     booking = Booking.create(date: Date.today, space_id: 1)
     expect(my_space.available_tonight?).to be false
   end
-
-
 end

@@ -1,5 +1,10 @@
 <h1>Current listings</h1>
 
+<form action="/">
+  <input type="date" name="date"></input>
+  <input type="submit" value="See Available Spaces"></input>
+</form>
+
 <ul>
   <% @spaces.each do |space| %>
     <li>

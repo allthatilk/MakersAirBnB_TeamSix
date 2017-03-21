@@ -6,7 +6,7 @@ require './app/models/datamapper_setup'
 class Air_bnb < Sinatra::Base
 
   get '/' do
-    @spaces = Space.all
+    params[:date] ? @spaces = Space.all - Space.all(Space.bookings.date => params[:date]) : @spaces = Space.all
     erb :index
   end
 
