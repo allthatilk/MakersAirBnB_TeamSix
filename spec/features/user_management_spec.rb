@@ -18,3 +18,16 @@ feature 'User sign up' do
   #
   # end
 end
+
+feature 'User sign in' do
+  let!(:user) do
+    User.create(email: 'test@test.com',
+    password: 'password')
+  end
+
+  scenario 'Users can sign in with correct credentials' do
+    sign_in(email: user.email, password: user.password_digest)
+    expect(page).to have_content "Welcome, #{user.email}"
+  end
+
+end
