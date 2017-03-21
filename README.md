@@ -55,3 +55,5 @@ I want my listing to be available on any given date until I've confirmed a booki
 We decided the minimum viable product we could present to a client would include:
 - adding a space to the listings
 - viewing a list of available spaces
+
+Our MVP is available here currently: https://beastmakersbnb.herokuapp.com/
