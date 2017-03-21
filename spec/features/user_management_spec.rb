@@ -5,11 +5,16 @@ feature 'User sign up' do
     expect(User.first.email).to eq('test@example.com')
   end
 
+# Currently this feature is not integral to the product. To test it would
+# require extra set up with poltergeist and phantom js that may affect our
+# use of Capybara as this would require testing the javascript file
   # scenario 'Users can show their password' do
   #   visit '/users/new'
   #   fill_in :password, with: 'password'
   #   check('toggle')
-  #   expect(page).to have_selector('password', visible: true )
+  #   # expect(page).to have_selector('password', visible: true )
+  #   puts page.html
+  #   expect(page).to have_css('input[type="password"][id="password"]')
   # end
   #
   # scenario 'Users can hide their password' do
