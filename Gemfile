@@ -9,7 +9,7 @@ group :test do
 end
 
 gem "rack", "1.6.5"
-
+gem "bcrypt"
 gem "sinatra"
 gem "data_mapper"
 gem "dm-postgres-adapter"
