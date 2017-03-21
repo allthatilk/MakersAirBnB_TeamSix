@@ -1,11 +1,22 @@
-<h1>Please sign up here</h1>
+<!DOCTYPE html>
+
+<head>
+  <script src="public/toggle.js"></script>
+</head>
+
+<body>
+  <h1>Please sign up here</h1>
 
 <form action='/users' method='post'>
   <label for='email'>
     Email: <input name='email' type='text'>
   </label>
   <label for='password'>
-    Password: <input name='password' type='password'>
+    Password: <input id='passwordField' type='password' name='passwordField' value='' autocomplete='off'>
+    <input type='button' id='togglePasswordField' value='Toggle Password' >
   </label>
   <input type='submit' value='Sign up'>
 </form>
+</body>
+
+<!-- style='display:none' -->
