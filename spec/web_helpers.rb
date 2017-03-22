@@ -1,12 +1,12 @@
-def sign_up
+def sign_up(email = 'test@test.com', password = 'password')
   visit '/users/new'
   expect(page.status_code).to eq(200)
-  fill_in :email, with: 'test@test.com'
-  fill_in :password, with: 'password'
+  fill_in :email, with: email
+  fill_in :password, with: password
   click_button 'Sign up'
 end
 
-def sign_in(email:, password:)
+def sign_in(email = 'test@test.com', password = 'password')
   visit '/sessions/new'
   fill_in :email, with: email
   fill_in :password, with: password

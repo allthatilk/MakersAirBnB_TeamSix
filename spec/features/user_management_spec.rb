@@ -65,3 +65,9 @@ feature "limiting guest access" do
     expect(page).not_to have_selector("input", :id =>"listingbutton")
   end
 end
+
+feature "user email validation" do
+  scenario "users must provide an email address to sign up" do
+    expect { sign_up(email = "")}.not_to change(User, :count)
+  end
+end
