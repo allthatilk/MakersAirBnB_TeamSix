@@ -28,6 +28,17 @@ class Air_bnb < Sinatra::Base
     redirect to('/')
   end
 
+  get '/sessions/new' do
+    erb:'sessions/new'
+  end
+
+  post '/sessions' do
+    # check password and email
+    user = User.first(email: params[:email])
+    session[:user_id] = user.id
+    redirect to('/')
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

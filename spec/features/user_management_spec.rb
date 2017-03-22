@@ -35,4 +35,9 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
+  scenario "User can click Sign in button on the main page" do
+    visit '/'
+    find_link('Sign In')
+  end
+
 end
