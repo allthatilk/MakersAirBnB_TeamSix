@@ -1,0 +1,5 @@
+<% if current_user %>
+<p><%= @booking_requests.length %> Booking Request<% if !@booking_requests.length == 1 %>s<%end%></p>
+<% else %>
+<p>You must log in to see the Dashboard.</p>
+<% end %>

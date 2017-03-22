@@ -39,6 +39,12 @@ class Air_bnb < Sinatra::Base
     redirect to('/')
   end
 
+  get '/dashboard' do
+    this_users_spaces = Space.all(user_id: current_user.id)
+    @booking_requestse = Booking.requests_by_space(this_users_spaces)
+    erb :dashboard
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
