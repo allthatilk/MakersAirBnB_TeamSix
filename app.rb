@@ -10,13 +10,24 @@ class Air_bnb < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @spaces = Space.all
+    params[:date] ? @spaces = Space.all - Space.all(Space.bookings.date => params[:date]) : @spaces = Space.all
     erb :index
   end
 
   post '/listings/new' do
     Space.create(name: params[:name], description: params[:description], price: params[:price])
     redirect '/'
+  end
+
+  get '/space' do
+    @space = Space.get(params[:id])
+    erb :space
+  end
+
+  post '/space/book' do
+    @space = Space.get(params[:id])
+    booking = !!Booking.make(@space, params[:date])
+    redirect "/space?id=#{params[:id]}&confirmation=#{booking}"
   end
 
   get '/users/new' do
