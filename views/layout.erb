@@ -7,7 +7,19 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.email %>
+      <form method='post' action='/sign_out_user'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      Please, sign up or sign in
+      <p>
+        <a href="/users/new">Sign Up</a>
+      </p>
+      <p>
+        <a href="/sessions/new">Sign In</a>
+      </p>
     <% end %>
+
     <%= yield %>
   </body>
 </html>
