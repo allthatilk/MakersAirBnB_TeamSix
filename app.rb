@@ -35,10 +35,6 @@ class Air_bnb < Sinatra::Base
   end
 
   post '/sessions' do
-    # check password and email
-    # user = User.first(email: params[:email])
-    p params[:email]
-    p params[:password]
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
@@ -47,7 +43,12 @@ class Air_bnb < Sinatra::Base
       flash.now[:error] = ['The email or password is incorrect']
       erb:'sessions/new'
     end
-end
+  end
+
+  post '/sign_out_user' do
+    session[:user_id] = nil
+    redirect '/'
+  end
 
   helpers do
     def current_user

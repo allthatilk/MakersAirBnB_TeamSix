@@ -46,8 +46,15 @@ feature 'User sign in' do
     fill_in :email, with: 'wrong@email.com'
     fill_in :password, with: 'wrongpassword'
     click_button 'Sign in'
-    # expect(flash[:error]).to be_present
     expect(page).to have_content "The email or password is incorrect"
   end
 
+end
+
+feature "user sign out" do
+  scenario "user can sign out" do
+    sign_up
+    click_button 'Sign out'
+    expect(page).not_to have_content "Welcome, test@test.com"
+  end
 end

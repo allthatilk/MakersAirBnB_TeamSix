@@ -2,8 +2,8 @@
 
 <% if flash[:error] %>
   <div id='error'><%= flash[:error] %></div>
-  <% end %>
-  
+<% end %>
+
 <form action='/sessions' method='post' autocomplete="off">
   <label for='email'>
     Email: <input name='email' type='email'>
