@@ -8,4 +8,8 @@ class Booking
   # belongs_to :user
   belongs_to :space
 
+  def self.make(space, date)
+    Booking.create(date: date, space_id: space.id) if space.available_on_date?(date)
+  end
+
 end

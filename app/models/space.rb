@@ -10,7 +10,11 @@ class Space
   has n, :bookings
 
   def available_tonight?
-    Booking.all(space_id: id, date: Date.today).empty?
+    available_on_date?(Date.today)
+  end
+
+  def available_on_date?(date)
+    Booking.all(space_id: id, date: date).empty?
   end
 
   def get_unavailable_dates
@@ -22,5 +26,7 @@ class Space
     end
     unavailable_dates
   end
+
+  
 
 end

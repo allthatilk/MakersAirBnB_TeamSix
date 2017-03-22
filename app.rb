@@ -22,6 +22,12 @@ class Air_bnb < Sinatra::Base
     erb :space
   end
 
+  post '/space/book' do
+    @space = Space.get(params[:id])
+    booking = !!Booking.make(@space, params[:date])
+    redirect "/space?id=#{params[:id]}&confirmation=#{booking}"
+  end
+
   get '/users/new' do
     erb:'users/new'
   end
