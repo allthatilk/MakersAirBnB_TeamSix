@@ -57,3 +57,15 @@ We decided the minimum viable product we could present to a client would include
 - viewing a list of available spaces
 
 Our MVP is available here currently: https://beastmakersbnb.herokuapp.com/
+
+We then split into two groups of three to work on the next two user stories: allowing a user to sign up, and adding date availability to the spaces pages.
+
+
+Decisions we made
+----
+- We deliberated for a long time about how to deal with date availability for spaces. We decided to deal with it within a separate booking class that would contain the date a property was booked on, and would be linked to that property, in a one-to-many relationship.We were then able to filter the spaces by available date using DataMapper
+- The next issue was how to display availability in a calendar format on the space's landing page. We wanted to use a jQuery datepicker, and grey out unavailable dates. This meant combining ruby on the back end with Javascript - our solution was to pull the unavailable dates into an array using ruby, and have a script tag convert it to a JavaScript variable that jQuery can access.
+
+Issues we encountered
+----
+- should we create new user stories for every new "sub-feature", e.g. email validation, checking for unique email address etc.
