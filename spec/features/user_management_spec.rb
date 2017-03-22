@@ -1,8 +1,8 @@
 feature 'User sign up' do
   scenario 'Users can sign up to use the site' do
     expect {sign_up}.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, test@example.com')
-    expect(User.first.email).to eq('test@example.com')
+    expect(page).to have_content('Welcome, test@test.com')
+    expect(User.first.email).to eq('test@test.com')
   end
 
 # Currently this feature is not integral to the product. To test it would
@@ -31,6 +31,7 @@ feature 'User sign in' do
   end
 
   scenario 'Users can sign in with correct credentials' do
+    sign_up
     sign_in(email: user.email, password: user.password_digest)
     expect(page).to have_content "Welcome, #{user.email}"
   end
@@ -38,6 +39,15 @@ feature 'User sign in' do
   scenario "User can click Sign in button on the main page" do
     visit '/'
     find_link('Sign In')
+  end
+
+  scenario "User can't sign in with the wrong credentials" do
+    visit 'sessions/new'
+    fill_in :email, with: 'wrong@email.com'
+    fill_in :password, with: 'wrongpassword'
+    click_button 'Sign in'
+    # expect(flash[:error]).to be_present
+    expect(page).to have_content "The email or password is incorrect"
   end
 
 end

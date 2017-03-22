@@ -7,6 +7,7 @@ require 'web_helpers'
 require_relative '../app.rb'
 require './app/models/datamapper_setup'
 require 'database_cleaner'
+require 'sinatra/flash'
 
 Capybara.app = Air_bnb
 
