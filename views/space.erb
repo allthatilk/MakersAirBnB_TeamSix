@@ -18,3 +18,14 @@
 <%end%>
 
 <div id="calendar"></div>
+
+<form action="/space/book?id=<%= @space.id %>" method="post">
+  <input type="text" name="date">
+  <input type="submit" value="Make a booking">
+</form>
+
+<%if params[:confirmation] == "true" %>
+<p>Booking successfully made</p>
+<%elsif params[:confirmation] == "false"%>
+<p>Sorry, this space is no longer available.</p>
+<%end%>
