@@ -5,7 +5,6 @@ ruby '2.3.3'
 group :test do
   gem "database_cleaner"
   gem "capybara"
-  gem "rspec-html-matchers"
   gem "rspec"
 end
 
