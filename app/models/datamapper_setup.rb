@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require_relative 'space'
+require_relative './space'
+require_relative './booking'
 require_relative 'user'
 
 DataMapper::Logger.new($stdout, :debug)
