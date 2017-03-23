@@ -68,6 +68,12 @@ end
 
 feature "user email validation" do
   scenario "users must provide an email address to sign up" do
-    expect { sign_up(email = "")}.not_to change(User, :count)
+    expect { sign_up("") }.not_to change(User, :count)
+  end
+end
+
+feature "password validation" do
+  scenario "users must provide a password to sign up" do
+    expect { sign_up("email@example.com", "")}.not_to change{User.all.length}
   end
 end

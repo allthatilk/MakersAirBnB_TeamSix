@@ -5,10 +5,10 @@ class User
 
   property :id, Serial
   property :email, String, required: true
-  property :password_digest, Text
+  property :password_digest, Text, required: true
 
   def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password) unless password.empty?
   end
 
   def self.authenticate(email, password)
