@@ -1,6 +1,8 @@
 $( function() {
     $( "#calendar" ).datepicker({beforeShowDay: unavailableDates,
-                                 minDate: 0});
+                                 minDate: 0, onSelect: function(date) {
+                                  $("input#datefield").val($( "#calendar" ).datepicker( "getDate" ));
+                                }});
   } );
 
 unavailableDates = function(date) {
