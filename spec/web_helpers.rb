@@ -7,10 +7,17 @@ def sign_up(email = 'test@test.com', password = 'password')
 end
 
 def sign_in(email = 'test@test.com', password = 'password')
+<<<<<<< HEAD
   visit '/sessions/new'
   fill_in :email, with: email
   fill_in :password, with: password
   click_button 'Sign in'
+=======
+ visit '/sessions/new'
+ fill_in :email, with: email
+ fill_in :password, with: password
+ click_button 'Sign in'
+>>>>>>> fc81f60674b386af386497fb94a8054f4fcf61b5
 end
 
 def create_joy_room_listing

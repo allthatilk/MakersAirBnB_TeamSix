@@ -7,6 +7,7 @@ feature 'space availability' do
   scenario 'seeing a space\'s availability tonight' do
     sign_in()
     visit "/"
+    sign_in
     create_joy_room_listing
     click_link "The Joy Room"
     expect(page).to have_content("Available Tonight!")

@@ -5,11 +5,7 @@ feature "making a booking" do
   end
 
   scenario "user can select a date and request a booking for that date" do
-<<<<<<< HEAD
-    sign_in(email: 'test@test.com', password: 'password')
-=======
     sign_in()
->>>>>>> 5db96d4227022167c54c71ee94adb901af63483f
     visit "/"
     create_joy_room_listing
     click_link "The Joy Room"
