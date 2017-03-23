@@ -30,7 +30,6 @@ describe Space do
 
   it "remains available on a given date if booking approval is pending" do
     booking
-    p booking
     expect(my_space.available_on_date?(Date.today)).to be true
   end
 
