@@ -58,3 +58,16 @@ feature "user sign out" do
     expect(page).not_to have_content "Welcome, test@test.com"
   end
 end
+
+feature "limiting guest access" do
+  scenario "guest users can't add a new listing" do
+    visit '/'
+    expect(page).not_to have_selector("input", :id =>"listingbutton")
+  end
+end
+
+feature "user email validation" do
+  scenario "users must provide an email address to sign up" do
+    expect { sign_up(email = "")}.not_to change(User, :count)
+  end
+end

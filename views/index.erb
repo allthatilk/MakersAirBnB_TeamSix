@@ -1,4 +1,6 @@
 <h1> AirBnB </h1>
 
+<% if current_user %>
 <%= erb :'listings/new' %>
+<% end %>
 <%= erb :view_listings %>
