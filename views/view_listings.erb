@@ -1,3 +1,20 @@
+<html>
+<head>
+<style>
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
+</head>
+
+<body>
 <h1>Current listings</h1>
 
 <form action="/">
@@ -11,7 +28,11 @@
       <a href="/space?id=<%= space.id %>"><%= space.name %></a>
       <%= space.description %>
       <%= space.price %>
-      <img src="<%= space.url %>">
+      <a target="_blank" href="<%= space.url %>">
+      <img src="<%= space.url %>" style="width:150px">
+    </a>
     </li>
   <% end %>
 </ul>
+</body>
+</html>
