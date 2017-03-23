@@ -41,7 +41,7 @@ class Air_bnb < Sinatra::Base
 
   get '/dashboard' do
     this_users_spaces = Space.all(user_id: current_user.id)
-    @booking_requestse = Booking.requests_by_space(this_users_spaces)
+    @booking_requests = Booking.requests_by_space(this_users_spaces)
     erb :dashboard
   end
 

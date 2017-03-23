@@ -6,6 +6,13 @@ def sign_up
   click_button 'Sign up'
 end
 
+def sign_in(email = 'test@test.com', password = 'password')
+ visit '/sessions/new'
+ fill_in :email, with: email
+ fill_in :password, with: password
+ click_button 'Sign in'
+end
+
 def create_joy_room_listing
   fill_in("name", with: "The Joy Room")
   fill_in("description", with: "The happiest room of all.")
