@@ -21,7 +21,7 @@
 
 <% if current_user %>
 <form action="/space/book?id=<%= @space.id %>" method="post">
-  <input type="text" name="date">
+  <input id='datefield' type="text" name="date">
   <input type="submit" id="bookingbutton" value="Make a booking">
 </form>
 <% end %>
@@ -31,3 +31,12 @@
 <%elsif params[:confirmation] == "false"%>
 <p>Sorry, this space is no longer available.</p>
 <%end%>
+
+<script>
+  $(document).ready( function () {
+    $("a").on('click', function(event) {
+      console.log('clicked!')
+      $('input#datefield').val($( '#calendar' ).datepicker( "getDate" ));
+    });
+  });
+</script>
