@@ -7,10 +7,14 @@
 <p>
   <% @booking_requests.each do |space_bookings| %>
   <ul>
+
     <%=Space.first(id: space_bookings.first.space_id).name %>
     <% space_bookings.each do |booking| %>
       <li>
       requested on <%= booking.date.strftime("%d/%m/%Y") %>
+      <form action="/booking/approve?id=<%=booking.id%>" method="post">
+        <input type="submit" id="approvalbutton" value="Approve">
+      </form>
     </li>
     <% end %>
     </ul>
@@ -18,4 +22,8 @@
 </p>
 <% else %>
 <p>You must log in to see the Dashboard.</p>
+<% end %>
+
+<% if params[:confirmation] == "true"%>
+  <p>Request for <%= Space.get(Booking.get(params[:id].to_i).space_id).name %> approved</p>
 <% end %>

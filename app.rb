@@ -72,9 +72,15 @@ class Air_bnb < Sinatra::Base
   get '/dashboard' do
     this_users_spaces = Space.all(user_id: current_user.id)
     @booking_requests = Booking.requests_by_space(this_users_spaces)
-
     erb :dashboard
   end
+
+  post '/booking/approve' do
+    booking = Booking.get(params[:id].to_i)
+    booking.approve
+    redirect "/dashboard?id=#{params[:id]}&confirmation=true"
+  end
+
 
   helpers do
     def current_user
