@@ -35,10 +35,14 @@ class Air_bnb < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email],
-                password: params[:password])
-    session[:user_id] = user.id
-    redirect '/'
+    user = User.create_user(params)
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:error] = 'Sorry, this user already exists'
+      erb:'users/new'
+    end
   end
 
   get '/sessions/new' do
@@ -51,7 +55,7 @@ class Air_bnb < Sinatra::Base
       session[:user_id] = user.id
       redirect '/'
     else
-      flash.now[:error] = ['The email or password is incorrect']
+      flash.now[:error] = 'The email or password is incorrect'
       erb:'sessions/new'
     end
   end

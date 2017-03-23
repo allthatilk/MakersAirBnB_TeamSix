@@ -20,4 +20,8 @@ class User
     end
   end
 
+  def self.create_user(params)
+    User.create(email: params[:email], password: params[:password]) unless User.first(email: params[:email])
+  end
+
 end
