@@ -32,7 +32,7 @@ feature 'User sign in' do
 
   scenario 'Users can sign in with correct credentials' do
     sign_up
-    sign_in(email: user.email, password: user.password_digest)
+    sign_in
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
@@ -56,5 +56,37 @@ feature "user sign out" do
     sign_up
     click_button 'Sign out'
     expect(page).not_to have_content "Welcome, test@test.com"
+  end
+end
+
+feature "limiting guest access" do
+  scenario "guest users can't add a new listing" do
+    visit '/'
+    expect(page).not_to have_selector("input", :id =>"listingbutton")
+  end
+end
+
+feature "user email validation" do
+  scenario "users must provide an email address to sign up" do
+    expect { sign_up("") }.not_to change(User, :count)
+  end
+end
+
+feature "password validation" do
+  scenario "users must provide a password to sign up" do
+    expect { sign_up("email@example.com", "")}.not_to change{User.all.length}
+  end
+end
+
+feature "unique email validation" do
+  scenario "users can't sign up twice" do
+    sign_up
+    expect { sign_up }.not_to change{User.all.length}
+  end
+
+  scenario "users can't sign up twice" do
+    sign_up
+    sign_up
+    expect(page).to have_content "Sorry, this user already exists"
   end
 end
