@@ -31,12 +31,3 @@
 <%elsif params[:confirmation] == "false"%>
 <p>Sorry, this space is no longer available.</p>
 <%end%>
-
-<script>
-  $(document).ready( function () {
-    $("a").on('click', function(event) {
-      console.log('clicked!')
-      $('input#datefield').val($( '#calendar' ).datepicker( "getDate" ));
-    });
-  });
-</script>
