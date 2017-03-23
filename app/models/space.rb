@@ -9,6 +9,8 @@ class Space
 
   has n, :bookings
 
+  belongs_to :user
+
   def available_tonight?
     available_on_date?(Date.today)
   end
@@ -27,6 +29,6 @@ class Space
     unavailable_dates
   end
 
-  
+
 
 end

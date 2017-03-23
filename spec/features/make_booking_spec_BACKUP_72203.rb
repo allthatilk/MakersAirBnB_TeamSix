@@ -13,4 +13,9 @@ feature "making a booking" do
     expect {click_button("Make a booking")}.to change(Booking, :count).by(1)
     expect(page).to have_content("Booking successfully made")
   end
+
+  scenario "user can only make a booking whilst logged in" do
+    visit '/'
+    expect(page).not_to have_selector("input", :id =>"bookingbutton")
+  end
 end

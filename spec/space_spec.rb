@@ -1,6 +1,8 @@
 describe Space do
-  let(:my_space) { Space.create(name: "Two-bedroom", description: "Spacious flat in Kingston", price: 70) }
+  let(:user) { User.create(email: 'test@example.com', password: "password")}
+  let(:my_space) { Space.create(name: "Two-bedroom", description: "Spacious flat in Kingston", price: 70, user_id: 1) }
   let(:booking) { Booking.create(date: Date.today, space_id: 1) }
+
   it "can create a new space" do
     my_space
     expect(Space.all.count).to eq 1

@@ -1,7 +1,7 @@
 <title>BeastmakersBnB</title>
 
 <% if current_user %>
-Welcome, <%= current_user.email %>
+Welcome, <%= current_user.email %> <a href="/dashboard"><button>Visit Dashboard</button></a>
 <form method='post' action='/sign_out_user'>
   <input type='submit' value='Sign out'>
 </form>
@@ -10,5 +10,6 @@ Welcome, <%= current_user.email %>
 <p><a href="/users/new">Sign Up</a></p>
 <p><a href="/sessions/new">Sign In</a></p>
 <% end %>
+
 
 <%= yield %>

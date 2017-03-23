@@ -19,10 +19,12 @@
 
 <div id="calendar"></div>
 
+<% if current_user %>
 <form action="/space/book?id=<%= @space.id %>" method="post">
   <input type="text" name="date">
-  <input type="submit" value="Make a booking">
+  <input type="submit" id="bookingbutton" value="Make a booking">
 </form>
+<% end %>
 
 <%if params[:confirmation] == "true" %>
 <p>Booking successfully made</p>

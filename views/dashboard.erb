@@ -1,0 +1,21 @@
+<% if current_user %>
+<p>
+  <%= @booking_requests.flatten.length %>
+   Booking Request<% if @booking_requests.flatten.length != 1 %>s
+  <%end%>
+</p>
+<p>
+  <% @booking_requests.each do |space_bookings| %>
+    <% space_bookings.each do |booking| %>
+    <ul>
+      <li>
+    <%=(Space.first(id: booking.space_id)).name %>
+      requested on <%= booking.date.strftime("%d/%m/%Y") %>
+    </li>
+  </ul>
+    <% end %>
+  <% end %>
+</p>
+<% else %>
+<p>You must log in to see the Dashboard.</p>
+<% end %>
