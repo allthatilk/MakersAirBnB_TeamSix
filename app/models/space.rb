@@ -10,7 +10,6 @@ class Space
   has n, :bookings
 
   belongs_to :user
-  # we need to change this, and other test expectations to have the feature test pass
 
   def available_tonight?
     available_on_date?(Date.today)
