@@ -1,0 +1,17 @@
+<script src="/toggle.js"></script>
+
+<h1>Please sign up here</h1>
+
+<% if flash[:error] %>
+<div id='error'><%= flash[:error] %></div>
+<% end %>
+
+<form action='/users' method='post'>
+  <label for='email'>Email:</label>
+    <input name='email' type='email' required>
+  <label for='password'>Password:</label>
+    <input type='password' id='password' name='password' required>
+    <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>
+    <span id='toggleText'>Show</span>
+  <input type='submit' value='Sign up'>
+</form>
