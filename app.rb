@@ -81,6 +81,12 @@ class Air_bnb < Sinatra::Base
     redirect "/dashboard?id=#{params[:id]}&confirmation=true"
   end
 
+  post '/booking/reject' do
+    booking = Booking.get(params[:id].to_i)
+    name = Space.get(booking.space_id).name
+    booking.destroy
+    redirect "/dashboard?name=#{name}&confirmation=false"
+  end
 
   helpers do
     def current_user
