@@ -6,6 +6,7 @@ class Space
   property :name, String
   property :description, String
   property :price, Integer
+  property :url, Text
 
   has n, :bookings
 
@@ -27,6 +28,7 @@ class Space
     unavailable_dates
   end
 
-  
+
+
 
 end

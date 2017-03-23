@@ -15,7 +15,7 @@ class Air_bnb < Sinatra::Base
   end
 
   post '/listings/new' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price])
+    space = Space.create(name: params[:name], description: params[:description], price: params[:price], url: params[:url])
     redirect '/'
   end
 
