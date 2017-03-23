@@ -6,7 +6,7 @@ feature 'dashboard' do
     Booking.create(date: "2017-03-03", space_id: 1)
     click_link "Visit Dashboard"
     expect(page).to have_content "1 Booking Request"
-    expect(page).to have_content "3/3/2017"
+    expect(page).to have_content "Joy Room requested on 03/03/2017"
   end
 
   scenario 'you can accept a booking request' do
