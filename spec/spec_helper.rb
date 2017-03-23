@@ -7,6 +7,7 @@ require 'web_helpers'
 require_relative '../app.rb'
 require './app/models/datamapper_setup'
 require 'database_cleaner'
+require 'sinatra/flash'
 
 Capybara.app = Air_bnb
 
@@ -29,6 +30,7 @@ Capybara.app = Air_bnb
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation

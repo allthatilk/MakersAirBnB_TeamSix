@@ -65,6 +65,7 @@ Decisions we made
 ----
 - We deliberated for a long time about how to deal with date availability for spaces. We decided to deal with it within a separate booking class that would contain the date a property was booked on, and would be linked to that property, in a one-to-many relationship.We were then able to filter the spaces by available date using DataMapper
 - The next issue was how to display availability in a calendar format on the space's landing page. We wanted to use a jQuery datepicker, and grey out unavailable dates. This meant combining ruby on the back end with Javascript - our solution was to pull the unavailable dates into an array using ruby, and have a script tag convert it to a JavaScript variable that jQuery can access.
+- We decided to implement a show/hide password box after reading that 25% of users abandon sign-up when encountering problems with password confirmation boxes.
 
 Issues we encountered
 ----

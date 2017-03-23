@@ -6,8 +6,24 @@
 
   <body>
     <% if current_user %>
+<<<<<<< HEAD
       Welcome, <%= current_user.email %> <a href="/dashboard"><button>Visit Dashboard</button></a>
+=======
+      Welcome, <%= current_user.email %>
+      <form method='post' action='/sign_out_user'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      Please, sign up or sign in
+      <p>
+        <a href="/users/new">Sign Up</a>
+      </p>
+      <p>
+        <a href="/sessions/new">Sign In</a>
+      </p>
+>>>>>>> 5db96d4227022167c54c71ee94adb901af63483f
     <% end %>
+
     <%= yield %>
   </body>
 </html>

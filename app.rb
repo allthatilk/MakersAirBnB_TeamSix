@@ -2,10 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './app/models/datamapper_setup'
+require 'sinatra/flash'
 
 class Air_bnb < Sinatra::Base
   enable :sessions
   set :session_secret, 'secret'
+  register Sinatra::Flash
 
   get '/' do
     params[:date] ? @spaces = Space.all - Space.all(Space.bookings.date => params[:date]) : @spaces = Space.all
@@ -36,7 +38,27 @@ class Air_bnb < Sinatra::Base
     user = User.create(email: params[:email],
                 password: params[:password])
     session[:user_id] = user.id
-    redirect to('/')
+    redirect '/'
+  end
+
+  get '/sessions/new' do
+    erb:'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:error] = ['The email or password is incorrect']
+      erb:'sessions/new'
+    end
+  end
+
+  post '/sign_out_user' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
   get '/dashboard' do
