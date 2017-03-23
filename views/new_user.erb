@@ -1,15 +1,10 @@
-<!DOCTYPE html>
+<script src="/toggle.js"></script>
 
-<head>
-  <script src="/toggle.js"></script>
-</head>
+<h1>Please sign up here</h1>
 
-<body>
-  <h1>Please sign up here</h1>
-
-  <% if flash[:error] %>
-    <div id='error'><%= flash[:error] %></div>
-  <% end %>
+<% if flash[:error] %>
+<div id='error'><%= flash[:error] %></div>
+<% end %>
 
 <form action='/users' method='post'>
   <label for='email'>Email:</label>
@@ -20,4 +15,3 @@
     <span id='toggleText'>Show</span>
   <input type='submit' value='Sign up'>
 </form>
-</body>
