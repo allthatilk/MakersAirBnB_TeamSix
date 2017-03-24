@@ -1,0 +1,37 @@
+.ui-datepicker-title {
+  text-align: center;
+}
+
+.ui-datepicker-prev {
+  float: left;
+}
+
+.ui-datepicker-next {
+  float: right;
+}
+
+#calendar {
+  width: 900px;
+}
+
+.ui-datepicker-calendar {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ui-datepicker-calendar td {
+  padding: 10px;
+  text-align: center;
+}
+
+.ui-datepicker-unselectable {
+  background-color: #e8e8e8;
+}
+
+.ui-state-disabled {
+  color: #adadad;
+}
+
+.unavailable {
+  background-color: #e8e8e8;
+}
