@@ -2,6 +2,9 @@
 
 <% if current_user %>
 Welcome, <%= current_user.email %> <a href="/dashboard"><button>Visit Dashboard</button></a>
+<% if current_user.profilepic != nil %>
+  <img src="<%=current_user.profilepic%>" style="width:40px;border:1px solid #000000;">
+<%end%> <!-- # TODO: When styling, seperate the above from the listing pictures so that it doesn't have the hover/padding  -->
 <form method='post' action='/sign_out_user'>
   <input type='submit' value='Sign out'>
 </form>

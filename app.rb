@@ -75,6 +75,11 @@ class Air_bnb < Sinatra::Base
     erb :dashboard
   end
 
+  post '/dashboard' do
+    current_user.update(:profilepic => params[:profilepic])
+    erb :dashboard
+  end
+
   post '/booking/approve' do
     booking = Booking.get(params[:id].to_i)
     booking.approve
