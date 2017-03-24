@@ -6,6 +6,7 @@ class User
   property :id, Serial
   property :email, String, required: true
   property :password_digest, Text, required: true
+  property :profilepic, Text
 
   has n, :spaces
 
