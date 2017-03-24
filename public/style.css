@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#main-content {
+  max-width: 900px;
+}
+
+.listings {
+  padding: 0;
+}
+
+.space-listing {
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 30px;
+  list-style: none;
+  height: 310px;
+  display: flex;
+  align-items: center;
+}
+
+.space-details {
+  max-width: 50%;
+  height: 90%;
+  margin: 0px 17px 0px 30px;
+  position: relative;
+}
+
+.space-img {
+  width: 450px;
+  margin-left: 17px;
+}
+
+.listing-price {
+  border: 2px solid;
+  border-radius: 10px 33px;
+  font-size: 200%;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+}
+
+.date-filter {
+  text-align: center;
+}
+
+.listing-desc {
+  width: 450px;
+}
+
+.listing-name {
+  margin: 0;
+}
+
+.grey-ui-box {
+  border: 0;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+  font-size: 100%;
+  padding: 10px;
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.listing-img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100%;
+  height: 270px;
+}
+
+.listing-img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
