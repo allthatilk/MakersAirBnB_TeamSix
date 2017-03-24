@@ -1,6 +1,9 @@
 <h1> AirBnB </h1>
 
 <% if current_user %>
-<%= erb :new_listing %>
+<!-- # <%= erb :new_listing %> -->
+<form method='get' action='/new-listing'>
+  <input type='submit' value='Create a new listing' />
+</form>
 <% end %>
 <%= erb :view_listings %>

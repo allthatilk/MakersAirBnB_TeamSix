@@ -18,8 +18,14 @@ class Air_bnb < Sinatra::Base
     erb :index
   end
 
+  get '/new-listing' do
+    erb :new_listing
+  end
+
   post '/listings/new' do
+
     Space.create(name: params[:name], description: params[:description], price: params[:price], url: params[:url], user_id: current_user.id)
+
     redirect '/'
   end
 
