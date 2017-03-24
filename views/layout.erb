@@ -1,18 +1,37 @@
 <title>BeastmakersBnB</title>
+<link rel="stylesheet" href="nav.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 
-<% if current_user %>
-Welcome, <%= current_user.email %> <a href="/dashboard"><button>Visit Dashboard</button></a>
-<% if current_user.profilepic != nil %>
-  <img src="<%=current_user.profilepic%>" style="width:40px;border:1px solid #000000;">
-<%end%> <!-- # TODO: When styling, seperate the above from the listing pictures so that it doesn't have the hover/padding  -->
-<form method='post' action='/sign_out_user'>
-  <input type='submit' value='Sign out'>
-</form>
-<% else %>
-<p>Please, sign up or sign in</p>
-<p><a href="/users/new">Sign Up</a></p>
-<p><a href="/sessions/new">Sign In</a></p>
-<% end %>
-<a href='/'><button>Home</button></a>
+<div class='nav'>
+  <div class='nav-right'>
+    <ul>
+      <% if current_user %>
+      <li class="nav-buttons">
+        <% if current_user.profilepic != nil %>
+          <img class='image-circle' src="<%=current_user.profilepic%>">
+        <%end%>
+      </li>
+      <li class="nav-buttons">
+        <form method='post' action='/sign_out_user'>
+          <input type='submit' class="nav-buttons" value='Sign out'>
+        </form>
+      </li>
+      <li class="nav-buttons">
+        <a href="/dashboard"><button class="nav-buttons">Visit Dashboard</button></a>
+      </li>
+    </ul>
+    <% if current_user %>
+    <div class='useremail'><%= current_user.email %></div>
+    <%end%>
+    <% else %>
+    <p><a class='nav-links' href="/users/new">Sign Up</a></p>
+    <p><a class='nav-links' href="/sessions/new">Sign In</a></p>
+    <% end %>
+  </div>
+  <div class='nav-left'>
+    <a href='/'><img id='logo' src='http://vignette4.wikia.nocookie.net/logocomics/images/a/a9/House_of_M_logo.png'></a>
+  </div>
+  </div>
+</div>
 
 <%= yield %>

@@ -1,7 +1,7 @@
 feature 'User sign up' do
   scenario 'Users can sign up to use the site' do
     expect {sign_up}.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, test@test.com')
+    expect(page).to have_content('test@test.com')
     expect(User.first.email).to eq('test@test.com')
   end
 
@@ -33,7 +33,7 @@ feature 'User sign in' do
   scenario 'Users can sign in with correct credentials' do
     sign_up
     sign_in
-    expect(page).to have_content "Welcome, #{user.email}"
+    expect(page).to have_content "#{user.email}"
   end
 
   scenario "User can click Sign in button on the main page" do
