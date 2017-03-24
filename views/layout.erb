@@ -19,9 +19,6 @@
       <li>
         <a href="/dashboard"><button>Visit Dashboard</button></a>
       </li>
-      <li>
-        <a href='/'><button>Home</button></a>
-      </li>
     </ul>
     <% if current_user %>
     <div class='useremail'><%= current_user.email %></div>
@@ -32,7 +29,7 @@
     <% end %>
   </div>
   <div class='nav-left'>
-    <img id='logo' src='http://vignette4.wikia.nocookie.net/logocomics/images/a/a9/House_of_M_logo.png'>
+    <a href='/'><img id='logo' src='http://vignette4.wikia.nocookie.net/logocomics/images/a/a9/House_of_M_logo.png'></a>
   </div>
   </div>
 </div>
