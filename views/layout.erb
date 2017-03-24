@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
 <title>BeastmakersBnB</title>
 
 <% if current_user %>
@@ -12,4 +15,6 @@ Welcome, <%= current_user.email %> <a href="/dashboard"><button>Visit Dashboard<
 <% end %>
 <a href='/'><button>Home</button></a>
 
+<div id="main_content">
 <%= yield %>
+</div>
