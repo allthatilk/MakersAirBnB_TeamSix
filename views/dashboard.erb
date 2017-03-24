@@ -19,17 +19,17 @@
   <% @booking_requests.each do |space_bookings| %>
   <ul>
 
-    <%=Space.first(id: space_bookings.first.space_id).name %>
+    <%=Space.get_name_of_space(space_bookings.first.space_id) %>
     <% space_bookings.each do |booking| %>
       <li>
-      requested on <%= booking.date.strftime("%d/%m/%Y") %>
-      <form action="/booking/approve?id=<%=booking.id%>" method="post">
-        <input type="submit" id="approvalbutton" value="Approve">
-      </form>
-      <form action="/booking/reject?id=<%=booking.id%>" method="post">
-        <input type="submit" id="rejectbutton" value="Reject">
-      </form>
-    </li>
+        requested on <%= booking.date.strftime("%d/%m/%Y") %>
+        <form action="/booking/approve?id=<%=booking.id%>" method="post">
+          <input type="submit" id="approvalbutton" value="Approve">
+        </form>
+        <form action="/booking/reject?id=<%=booking.id%>" method="post">
+          <input type="submit" id="rejectbutton" value="Reject">
+        </form>
+      </li>
     <% end %>
     </ul>
   <% end %>
@@ -39,8 +39,8 @@
 <p>You must log in to see the Dashboard.</p>
 <% end %>
 
-<% if params[:confirmation] == "true"%>
-  <p>Request for <%= Space.get(Booking.get(params[:id].to_i).space_id).name %> approved</p>
-<% elsif params[:confirmation] == "false"%>
-  <p>Request for <%=params[:name]%> rejected</p>
+<% if @confirmed == "true" %>
+  <p>Request for <%= Space.get_name_of_space(Booking.get(params[:id].to_i).space_id) %> approved</p>
+<% elsif @confirmed == "false" %>
+  <p>Request for <%= @confirmed_space_name %> rejected</p>
 <% end %>
