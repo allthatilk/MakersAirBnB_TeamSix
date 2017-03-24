@@ -24,4 +24,5 @@ class Booking
       requests << unapproved_bookings unless unapproved_bookings.empty? }
     requests
   end
+
 end

@@ -38,4 +38,10 @@ describe Space do
     booking.approve
     expect(my_space.get_unavailable_dates).to eq [[22, 3, 2017]]
   end
+
+  it "can display the name of the space when given a booking's space_id" do
+    my_space
+    booking
+    expect(Space.get_name_of_space(booking.space_id)).to eq "Two-bedroom"
+  end
 end
