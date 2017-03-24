@@ -41,18 +41,15 @@ a:hover, li button:hover, li input:hover {
 
 }
 
-li {
-  display: inline;
-  float: right;
-  margin: 0px 10px 0px 10px;
-}
-
-li, li button, li input {
+.nav-buttons {
   background-color: white;
   border: none;
   font-family: 'Noto Sans', sans-serif;
   color: #black;
   font-size: 20px;
+  display: inline;
+  float: right;
+  margin: 0px 10px 0px 10px;
 }
 
 .useremail {
