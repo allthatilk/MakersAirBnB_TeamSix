@@ -8,7 +8,7 @@
   <% @booking_requests.each do |space_bookings| %>
   <ul>
 
-    <%=Space.first(id: space_bookings.first.space_id).name %>
+    <%=Space.get_name_of_space(space_bookings.first.space_id) %>
     <% space_bookings.each do |booking| %>
       <li>
       requested on <%= booking.date.strftime("%d/%m/%Y") %>

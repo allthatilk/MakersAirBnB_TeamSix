@@ -30,4 +30,8 @@ class Space
     unavailable_dates
   end
 
+  def self.get_name_of_space(space_id)
+    Space.first(id: space_id).name
+  end
+
 end
