@@ -5,6 +5,7 @@ feature "saving pictures to database" do
   end
   scenario "can save pictures via url to site" do
     visit '/'
+    sign_in
     create_joy_room_listing
     expect(page).to have_xpath("//img[contains(@src, 'http://img.clipartall.com/pokemon-clipart-image-poke-clipart005.jpg')]")
   end
