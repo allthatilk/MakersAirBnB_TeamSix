@@ -78,6 +78,8 @@ class Air_bnb < Sinatra::Base
   get '/dashboard' do
     this_users_spaces = Space.all(user_id: current_user.id)
     @booking_requests = Booking.requests_by_space(this_users_spaces)
+    @confirmed = params[:confirmation]
+    @confirmed_space_name = params[:name]
     erb :dashboard
   end
 
