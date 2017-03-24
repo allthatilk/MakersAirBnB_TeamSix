@@ -1,10 +1,6 @@
-
-
-<h1>Current listings</h1>
-
-<form action="/">
-  <input type="date" name="date"></input>
-  <input type="submit" value="See Available Spaces"></input>
+<form class="date-filter" action="/">
+  <input class="grey-ui-box" type="date" name="date"></input>
+  <input class="grey-ui-box" type="submit" value="See Available Spaces"></input>
 </form>
 
 
@@ -17,9 +13,11 @@
         </a>
       </div>
       <div class="space-details">
-        <a href="/space?id=<%= space.id %>"><%= space.name %></a>
-        <%= space.description %>
-        <%= space.price %>
+        <a target="_blank" href="/space?id=<%= space.id %>">
+          <h2 class="listing-name"><%= space.name %></h2>
+          <p class="listing-desc"><%= space.description %></p>
+          <p class="listing-price">£<%= space.price %></p>
+        </a>
       </div>
     </li>
   <% end %>
