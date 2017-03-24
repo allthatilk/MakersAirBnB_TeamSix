@@ -3,6 +3,7 @@ feature 'booking request approval' do
   scenario 'user can visit dashboard and approve pending booking requests' do
     visit "/"
     sign_up
+    sign_in
     create_joy_room_listing
     booking
     click_link "Visit Dashboard"
@@ -12,6 +13,7 @@ feature 'booking request approval' do
 
   scenario 'user can visit dashboard and reject pending booking requests' do
     sign_up
+    sign_in
     create_joy_room_listing
     booking
     click_link "Visit Dashboard"

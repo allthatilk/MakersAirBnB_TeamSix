@@ -1,5 +1,16 @@
 <% if current_user %>
 <p>
+  <% if current_user.profilepic != nil %>
+    <img src="<%=current_user.profilepic%>" style="height:150px;border:1px solid #000000;"> 
+  <%end%>
+  <h3>Upload new profile picture url:</h3>
+ <form action="/dashboard" method="post">
+   <input type="text" id="profilepic" name="profilepic">
+   <input type="submit" value="Upload">
+ </form>
+</p>
+<p>
+  <% if @booking_requests %>
   <%= @booking_requests.flatten.length %>
    Booking Request<% if @booking_requests.flatten.length != 1 %>s
   <%end%>
@@ -22,6 +33,7 @@
     <% end %>
     </ul>
   <% end %>
+<%end%>
 </p>
 <% else %>
 <p>You must log in to see the Dashboard.</p>

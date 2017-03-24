@@ -18,8 +18,14 @@ class Air_bnb < Sinatra::Base
     erb :index
   end
 
+  get '/new-listing' do
+    erb :new_listing
+  end
+
   post '/listings/new' do
+
     Space.create(name: params[:name], description: params[:description], price: params[:price], url: params[:url], user_id: current_user.id)
+
     redirect '/'
   end
 
@@ -72,6 +78,11 @@ class Air_bnb < Sinatra::Base
   get '/dashboard' do
     this_users_spaces = Space.all(user_id: current_user.id)
     @booking_requests = Booking.requests_by_space(this_users_spaces)
+    erb :dashboard
+  end
+
+  post '/dashboard' do
+    current_user.update(:profilepic => params[:profilepic])
     erb :dashboard
   end
 
